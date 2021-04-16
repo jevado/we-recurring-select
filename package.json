@@ -1,6 +1,6 @@
 {
-  "name": "recurring-select",
-  "version": "0.1.1.0",
+  "name": "we-recurring-select",
+  "version": "0.1.2",
   "description": "NPM verison of recurring_select gem by GetJobber",
   "main": "dist/index.js",
   "scripts": {
@@ -11,10 +11,7 @@
     "src",
     "scss"
   ],
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/KatanaCode/recurring_select.git"
-  },
+  "repository": "https://github.com/jevado/we-recurring-select",
   "keywords": [
     "ice_cube",
     "recurring_select",
@@ -23,9 +20,9 @@
   "author": "Jobber, Forrest Zeisler, Nathan Youngman, Bodacious, Jevado",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/KatanaCode/recurring_select/issues"
+    "url": "https://github.com/jevado/we-recurring-select/issues"
   },
-  "homepage": "https://github.com/KatanaCode/recurring_select#readme",
+  "homepage": "https://github.com/jevado/we-recurring-select",
   "dependencies": {
     "jquery": "^3.4.1"
   },
