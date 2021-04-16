@@ -1,0 +1,35 @@
+{
+  "name": "recurring-select",
+  "version": "0.1.1.0",
+  "description": "NPM verison of recurring_select gem by GetJobber",
+  "main": "dist/index.js",
+  "scripts": {
+    "build": "coffee --output dist src"
+  },
+  "files": [
+    "dist",
+    "src",
+    "scss"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KatanaCode/recurring_select.git"
+  },
+  "keywords": [
+    "ice_cube",
+    "recurring_select",
+    "schedule"
+  ],
+  "author": "Jobber, Forrest Zeisler, Nathan Youngman, Bodacious, Jevado",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/KatanaCode/recurring_select/issues"
+  },
+  "homepage": "https://github.com/KatanaCode/recurring_select#readme",
+  "dependencies": {
+    "jquery": "^3.4.1"
+  },
+  "devDependencies": {
+    "coffee": "^5.2.2"
+  }
+}
