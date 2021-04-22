@@ -1,15 +1,13 @@
-#################   .gitignore    #################
+#################   .npmignore    #################
 
 #################   data files    #################
-
 data/
 
 #################  distro files   #################
-
 site/
 
 #################  unit testing   #################
-
+coverage/
 .nyc_output/
 .coveralls.*
 .coverage
@@ -18,17 +16,30 @@ site/
 coverage.xml
 
 #################  dependencies   #################
-
+*.swp
+npm-debug.log
 node_modules/
 package-lock.json
-yarn.lock
 
 #################    dev files    #################
+dev/
+test/
+test_dev/
+docs/
+docs_dev/
+.babelrc
+webpack.config.js
+karma.config.js
+
 
 ################  version control  ################
+.hgignore
+.hg/
+.gitignore
+.git/
+
 
 #################    IDE files    #################
-
 .DS_STORE
 .netbeans
 nbproject
@@ -38,7 +49,6 @@ venv/
 venv3/
 
 #################   backup sync   #################
-
 desktop.ini
 *.gdoc
 .dropbox

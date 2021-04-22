@@ -1,32 +1,61 @@
 {
   "name": "we-recurring-select",
-  "version": "0.1.3",
-  "description": "NPM verison of recurring_select gem by GetJobber",
-  "main": "dist/index.js",
-  "scripts": {
-    "build": "coffee --output dist src"
-  },
-  "files": [
-    "dist",
-    "src",
-    "scss"
+  "version": "0.0.1",
+  "description": "A Brilliant Javascript Module For The Browser",
+  "author": "jvandoorn <user@domain.com>",
+  "contributors": [
+    {
+      "name": "jvandoorn user@domain.com"
+    }
   ],
-  "repository": "https://github.com/jevado/we-recurring-select",
-  "keywords": [
-    "ice_cube",
-    "recurring_select",
-    "schedule"
-  ],
-  "author": "Jobber, Forrest Zeisler, Nathan Youngman, Bodacious, Jevado",
-  "license": "MIT",
   "bugs": {
     "url": "https://github.com/jevado/we-recurring-select/issues"
   },
-  "homepage": "https://github.com/jevado/we-recurring-select",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/jevado/we-recurring-select"
+  },
+  "homepage": "https://github.com/jvandoorn/we-recurring-select",
   "dependencies": {
-    "jquery": "^3.4.1"
+    "jquery": "^3.3.1"
+  },
+  "license": "MIT",
+  "main": "dist/we-recurring-select.min.js",
+  "scripts": {
+    "test": "karma start karma.config.js",
+    "build": "webpack --config webpack.config.js",
+    "prepare": "npm run build",
+    "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
-    "coffee": "^5.2.2"
+    "@babel/core": "^7.0.0",
+    "@babel/preset-env": "^7.0.0",
+    "babel-loader": "^8.0.2",
+    "chai": "^4.1.2",
+    "coveralls": "^3.0.2",
+    "docsify-cli": "^4.2.1",
+    "karma": "^3.0.0",
+    "karma-chai": "^0.1.0",
+    "karma-cli": "^1.0.1",
+    "karma-coverage": "^1.1.2",
+    "karma-mocha": "^1.3.0",
+    "karma-mocha-reporter": "^2.2.5",
+    "karma-phantomjs-launcher": "^1.0.4",
+    "karma-sinon": "^1.0.5",
+    "karma-webpack": "^3.0.4",
+    "mocha": "^5.2.0",
+    "nyc": "^13.0.1",
+    "phantomjs-prebuilt": "^2.1.16",
+    "sinon": "^6.2.0",
+    "standard": "^11.0.1",
+    "webpack": "^4.17.2",
+    "webpack-cli": "^3.1.0"
   }
 }
+
+"repository": "",
+"keywords": [
+"ice_cube",
+"recurring_select",
+"schedule"
+],
