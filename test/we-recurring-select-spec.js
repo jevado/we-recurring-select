@@ -1,8 +1,8 @@
-import * as we-recurring-select from '../src/we-recurring-select.js'
+import * as we_recurring_select from '../src/js/we-recurring-select.js'
 
 // https://www.chaijs.com/guide/styles
 
-describe('we-recurring-select', function() {
+describe('we_recurring_select', function() {
   describe('Placeholder()', function() {
     it('should do nothing yet', function() {
       expect(2).to.equal(2)

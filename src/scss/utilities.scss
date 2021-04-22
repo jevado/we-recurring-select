@@ -1,4 +1,4 @@
-@mixin shadows($x_offset: 0px, $y_offset: 1px, $size: 8px, $color: rgba(0, 0, 0, 0.5)) { 
+@mixin shadows($x_offset: 0px, $y_offset: 1px, $size: 8px, $color: rgba(0, 0, 0, 0.5)) {
   -webkit-box-shadow: $x_offset $y_offset $size $color;
   -moz-box-shadow:    $x_offset $y_offset $size $color;
   -ms-box-shadow:     $x_offset $y_offset $size $color;
