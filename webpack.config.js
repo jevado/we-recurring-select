@@ -13,9 +13,14 @@ module.exports = {
     library:'we_recurring_select' // to enable we-recurring-select as object in window
   },
   mode: 'production',
-  externals: {
-    jquery: 'jQuery'
-    // add external dependencies here
+  // externals: {
+  //   jquery: 'jQuery'
+  //   // add external dependencies here
+  // },
+  resolve: {
+    alias: {
+      'jquery': path.resolve(path.join(__dirname, 'node_modules', 'jquery'))
+    },
   },
   module: {
     rules: [
@@ -36,7 +41,14 @@ module.exports = {
           "css-loader",
           "sass-loader"
         ]
-      }
+      },
+      // {
+      //   test: require.resolve("jquery"),
+      //   loader: "expose-loader",
+      //   options: {
+      //     exposes: ["$", "jQuery"],
+      //   },
+      // },
     ]
   },
   plugins: [
@@ -44,9 +56,10 @@ module.exports = {
       filename: "css/[name].css"
     }),
     new webpack.ProvidePlugin({
-      $: "jquery",
-      jquery: "jQuery",
-      "window.jQuery": "jquery"
+      $: 'jquery/dist/jquery',
+      jQuery: 'jquery/dist/jquery',
+      'window.jQuery': 'jquery/dist/jquery',
+      'window.$': 'jquery/dist/jquery',
     })
   ]
 };

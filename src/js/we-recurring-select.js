@@ -11,7 +11,7 @@
 * @preserve
 */
 // import dependencies
-import * as $ from 'jquery'
+
 
 // placeholder class
 // export default class Placeholder {
@@ -31,6 +31,14 @@ import * as $ from 'jquery'
 
 var methods;
 
+
+// import $ from "jquery";
+import * as $ from 'jquery';
+
+// import $ from 'jquery'
+// window.jQuery = $;
+// window.$ = $;
+
 import RecurringSelectDialog from "./recurring_select_dialog";
 
 // $(function() {
@@ -41,8 +49,6 @@ import RecurringSelectDialog from "./recurring_select_dialog";
 //     return $(this).recurring_select('changed');
 //   });
 // });
-
-(function($){
 
 methods = {
   set_initial_values: function() {
@@ -146,5 +152,4 @@ $.fn.recurring_select.texts = {
   show_week: [true, true, true, true, false, false]
 };
 
-}(jQuery));
 
