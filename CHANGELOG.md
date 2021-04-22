@@ -11,3 +11,8 @@
 * Minor fix to display "Last" if 6 weeks are enabled in the monthly - select day of week
 * Made jQuery and $ global via the webpack.config and removed the $ var from the recurring select dialog
 * Removed the intitialization of the select box out of the code, this should happen in the application js
+
+## 0.2.1 (2021.04.22)
+* made sure that the prepare script runs the build-prod script
+* removed the old package.json (_prev_package.json)
+* expanded the package.json to include files and keywords

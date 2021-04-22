@@ -1,12 +1,23 @@
 {
   "name": "we-recurring-select",
-  "version": "0.2.0",
+  "version": "0.2.1",
   "description": "Slightly adjusted NPM version of recurring_select gem by GetJobber",
   "author": "Jobber, Forrest Zeisler, Nathan Youngman, Bodacious, Jeroen van Doorn",
   "contributors": [
     {
       "name": "Jeroen van Doorn <jeroen@we-technology.work>"
     }
+  ],
+  "keywords": [
+    "ice_cube",
+    "recurring_select",
+    "schedule"
+  ],
+  "files": [
+    "dist/{css,js}/*.{css,js}",
+    "docs",
+    "src/{scss,js}/*.{scss,js}",
+    "test"
   ],
   "bugs": {
     "url": "https://github.com/jevado/we-recurring-select/issues"
@@ -26,7 +37,7 @@
     "build-dev": "webpack --config webpack.config.js --mode development",
     "build-prod": "webpack --config webpack.config.js --mode production",
     "test": "karma start karma.config.js",
-    "prepare": "yarn run build-dev",
+    "prepare": "yarn run build-prod",
     "coverage": "nyc report --reporter=text-lcov | coveralls"
   },
   "devDependencies": {
