@@ -23,3 +23,6 @@
 ## 0.2.3 (2021.04.26)
 * added an option to disable yearly to the plugin ( only clientside )
 * extended the documentation
+
+## 0.2.4 (2021.04.26)
+* FIX: accidentally the yearly option disabled a little bit too much of the popup

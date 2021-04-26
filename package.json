@@ -1,7 +1,7 @@
 {
   "name": "we-recurring-select",
-  "version": "0.2.3",
-  "description": "Slightly adjusted NPM version of recurring_select gem by GetJobber",
+  "version": "0.2.4",
+  "description": "Slightly adjusted NPM version of recurring_select gem JS & CSS by GetJobber",
   "author": "Jobber, Forrest Zeisler, Nathan Youngman, Bodacious, Jeroen van Doorn",
   "contributors": [
     {
