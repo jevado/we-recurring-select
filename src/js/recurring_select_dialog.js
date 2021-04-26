@@ -1,6 +1,6 @@
-var RecurringSelectDialog;
+var $, RecurringSelectDialog;
 
-import * as $ from 'jquery';
+$ = require("jquery");
 
 RecurringSelectDialog = class RecurringSelectDialog {
   constructor(recurring_selector) {

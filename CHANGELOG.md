@@ -17,5 +17,5 @@
 * removed the old package.json (_prev_package.json)
 * expanded the package.json to include files and keywords
 
-## 0.2.2 (2021.04.22)
-* experiment with jquery, I can't seem to properly figure out the scope of $
+## 0.2.2 (2021.04.26)
+* mostly been fiddeling with the scope of $, turned out the plugin settings in the webpack config where clashing with the one in Rails

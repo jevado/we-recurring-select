@@ -46,6 +46,7 @@
     "babel-loader": "^8.2.2",
     "chai": "^4.1.2",
     "coveralls": "^3.0.2",
+    "css-loader": "^5.2.4",
     "docsify-cli": "^4.4.3",
     "karma": "^6.3.2",
     "karma-chai": "^0.1.0",
@@ -56,18 +57,16 @@
     "karma-phantomjs-launcher": "^1.0.4",
     "karma-sinon": "^1.0.5",
     "karma-webpack": "^5.0.0",
+    "mini-css-extract-plugin": "^1.5.0",
     "mocha": "^8.3.2",
+    "node-sass": "^5.0.0",
     "nyc": "^15.1.0",
     "phantomjs-prebuilt": "^2.1.16",
+    "sass-loader": "^11.0.1",
     "sinon": "^10.0.0",
     "standard": "^16.0.3",
-    "webpack": "^5.35.0",
-    "webpack-cli": "^4.6.0",
-    "css-loader": "^5.2.4",
-    "sass-loader": "^11.0.1",
-    "node-sass": "^5.0.0",
     "style-loader": "^2.0.0",
-    "mini-css-extract-plugin":"^1.5.0",
-    "expose-loader":"^2.0.0"
+    "webpack": "^5.35.0",
+    "webpack-cli": "^4.6.0"
   }
 }
