@@ -19,3 +19,7 @@
 
 ## 0.2.2 (2021.04.26)
 * mostly been fiddeling with the scope of $, turned out the plugin settings in the webpack config where clashing with the one in Rails
+
+## 0.2.3 (2021.04.26)
+* added an option to disable yearly to the plugin ( only clientside )
+* extended the documentation

@@ -101,7 +101,8 @@ import RecurringSelectDialog from "./recurring_select_dialog";
   $.fn.recurring_select.options = {
     monthly: {
       show_week: [true, true, true, true, false, false]
-    }
+    },
+    yearly: true
   };
 
   $.fn.recurring_select.texts = {

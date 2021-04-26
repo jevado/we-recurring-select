@@ -1,21 +1,21 @@
-![Version](https://img.shields.io/npm/v/<module-name>.svg)
-![License](https://img.shields.io/npm/l/<module-name>.svg)
-![Coverage](https://img.shields.io/coveralls/github/<user-name>/<repo-name>.svg)
+![Version](https://img.shields.io/npm/v/we-recurring-select.svg)
+![License](https://img.shields.io/npm/l/we-recurring-select.svg)
+![Coverage](https://img.shields.io/coveralls/github/jevado/we-recurring-select.svg)
 # we-recurring-select
 _Slightly adjusted Yarn version of recurring_select gem by GetJobber_
 <table>
   <tbody>
     <tr>
       <td><b>Downloads</b></td>
-      <td><a href="https://www.npmjs.com/package/<module-name>">https://www.npmjs.com/package/<module-name></a></td>
+      <td><a href="https://yarnpkg.com/package/we-recurring-select">"https://yarnpkg.com/package/we-recurring-select</a></td>
     </tr>
     <tr>
       <td><b>Source</b></td>
-      <td><a href="https://github.com/<user-name>/<repo-name>">https://github.com/<user-name>/<repo-name></a></td>
+      <td><a href="https://github.com/jevado/we-recurring-select">https://github.com/jevado/we-recurring-select</a></td>
     </tr>
     <tr>
       <td><b>Documentation</b></td>
-      <td><a href="https://<user-name>.github.io/<repo-name>">https://<user-name>.github.io/<repo-name>/</a></td>
+      <td><a href="https://github.com/jevado/we-recurring-select">https://github.com/jevado/we-recurring-select</a></td>
     </tr>
   </tbody>
 </table>
@@ -23,9 +23,8 @@ _Slightly adjusted Yarn version of recurring_select gem by GetJobber_
 ## Intro
 WARNING:
 
-Documentation is mostly a placeholder and not completely updated yet.
-
-Tests are not written yet, this really is a plugin in flux right now
+* Documentation is completely updated yet.
+* Tests are not written yet, this really is a plugin in flux right now
 
 ## Installation
 From Yarn / add to a project:
@@ -39,11 +38,15 @@ $ cd we-recurring-select
 $ yarn install --production
 ```
 ## Usage
-How to import and use each class or function in the module...
+After including the package you need to add the triggers to your 'document ready' block
+Future plans are to make this mechanism more flexible so we can move  that code back into the plugin
+
+Options include which weeks to show when selecting a month AND disabling the yearly option.
 
 ```javascript
-$(document).on('ready turbolinks:load', function (e) {
+require('we-recurring-select');
 
+$(document).on('ready turbolinks:load', function (e) {
 
         $(document).on("focus", ".recurring_select", function() {
             return $(this).recurring_select('set_initial_values');
@@ -59,30 +62,44 @@ $(document).on('ready turbolinks:load', function (e) {
         },
         yearly: false
     }
+});
+
+import 'we-recurring-select/dist/css/main.css'
+
 ```
 
 ## Dev Installation
 ```shell
-$ npm install --only=dev 
+$ yarn install --production=false
   # or
-$ npm install -g chai coveralls docsify-cli karma karma-chai karma-cli karma-coverage karma-mocha karma-mocha-reporter karma-phantomjs-launcher karma-sinon karma-webpack mocha nyc phantomjs-prebuilt sinon standard webpack webpack-cli
-$ npm install @babel/core @babel/preset-env babel-loader 
+$ yarn add -g chai coveralls docsify-cli karma karma-chai karma-cli karma-coverage karma-mocha karma-mocha-reporter karma-phantomjs-launcher karma-sinon karma-webpack mocha nyc phantomjs-prebuilt sinon standard webpack webpack-cli
+$ yarn add @babel/core @babel/preset-env babel-loader
 ```
 ## Test
 ```shell
-$ npm test
+$ yarn run test
 ```
 ## Build
 ```shell
-$ npm run build
+$ yarn run prod-build
 ```
 ## Report
 ```shell
-$ npm run coverage
+$ yarn run coverage
 ```
 ## Collaboration Notes
 A collaborator should always **FORK** the repo from the main master and fetch changes from the upstream repo before making pull requests. Please add unittests and documentation for any features added in the pull request.
 
+## Troubleshooting
+In case you get
+* Cannot read property 'fn' of undefined
+* jquery__WEBPACK_IMPORTED_MODULE_*** is not a function
+* $(....).recurring_select is not a funcion
+
+It very likely has to do with the context of $ / jQuery.
+For me the trick was not to define  $ /jQuery / window.jQuery as a plugin in the environment.js of Rails
+
 ## Old files
 The coffee and js files in src/coffee are the files from the original recurring projectd, https://github.com/GetJobber/recurring_select
 For now they are included for reference, but they will eventually be removed
+
