@@ -154,7 +154,7 @@ class RecurringSelectDialog
       @save_button.removeClass("disabled")
       rule_str = @current_rule.str.replace("*", "")
       if rule_str.length < 20
-        rule_str = "#{$.fn.recurring_select.texts["summary"]}: "+rule_str
+        rule_str = "#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["summary"]}: "+rule_str
       @summary.find("span").html rule_str
     else
       @summary.addClass "fetching"
@@ -164,7 +164,7 @@ class RecurringSelectDialog
 
   summaryFetch: ->
     return if !(@current_rule.hash? && (rule_type = @current_rule.hash.rule_type)?)
-    @current_rule.hash['week_start'] = $.fn.recurring_select.texts["first_day_of_week"]
+    @current_rule.hash['week_start'] = $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["first_day_of_week"]
     $.ajax
       url: "/recurring_select/translate/en",
       type: "POST",
@@ -185,7 +185,7 @@ class RecurringSelectDialog
         day_link.addClass("selected")
 
     # add last day of month button
-    monthly_calendar.append (end_of_month_link = $(document.createElement("a")).text($.fn.recurring_select.texts["last_day"]))
+    monthly_calendar.append (end_of_month_link = $(document.createElement("a")).text($.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["last_day"]))
     end_of_month_link.addClass("end_of_month")
     if $.inArray(-1, @current_rule.hash.validations.day_of_month) != -1
       end_of_month_link.addClass("selected")
@@ -195,14 +195,14 @@ class RecurringSelectDialog
   init_calendar_weeks: (section) =>
     monthly_calendar = section.find(".rs_calendar_week")
     monthly_calendar.html ""
-    row_labels = $.fn.recurring_select.texts["order"]
+    row_labels = $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["order"]
     show_row = $.fn.recurring_select.options["monthly"]["show_week"]
-    cell_str = $.fn.recurring_select.texts["days_first_letter"]
+    cell_str = $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["days_first_letter"]
 
     for num, index in [1, 2, 3, 4, 5, -1]
       if show_row[index]
         monthly_calendar.append "<span>#{row_labels[num - 1]}</span>"
-        for day_of_week in [$.fn.recurring_select.texts["first_day_of_week"]...(7 + $.fn.recurring_select.texts["first_day_of_week"])]
+        for day_of_week in [$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["first_day_of_week"]...(7 + $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["first_day_of_week"])]
           day_of_week = day_of_week % 7
           day_link = $("<a>", {text: cell_str[day_of_week] })
           day_link.attr("day", day_of_week)
@@ -234,19 +234,19 @@ class RecurringSelectDialog
     switch @freq_select.val()
       when "Weekly"
         @current_rule.hash.rule_type = "IceCube::WeeklyRule"
-        @current_rule.str = $.fn.recurring_select.texts["weekly"]
+        @current_rule.str = $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["weekly"]
         @initWeeklyOptions()
       when "Monthly"
         @current_rule.hash.rule_type = "IceCube::MonthlyRule"
-        @current_rule.str = $.fn.recurring_select.texts["monthly"]
+        @current_rule.str = $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["monthly"]
         @initMonthlyOptions()
       when "Yearly"
         @current_rule.hash.rule_type = "IceCube::YearlyRule"
-        @current_rule.str = $.fn.recurring_select.texts["yearly"]
+        @current_rule.str = $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["yearly"]
         @initYearlyOptions()
       else
         @current_rule.hash.rule_type = "IceCube::DailyRule"
-        @current_rule.str = $.fn.recurring_select.texts["daily"]
+        @current_rule.str = $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["daily"]
         @initDailyOptions()
     @summaryUpdate()
     @positionDialogVert()
@@ -275,7 +275,7 @@ class RecurringSelectDialog
     @current_rule.hash ||= {}
     @current_rule.hash.validations = {}
     raw_days = @content.find(".monthly_options .rs_calendar_day a.selected").map ->
-      res = if $(this).text() == $.fn.recurring_select.texts["last_day"] then -1 else parseInt($(this).text())
+      res = if $(this).text() == $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["last_day"] then -1 else parseInt($(this).text())
       res
     @current_rule.hash.validations.day_of_week = {}
     @current_rule.hash.validations.day_of_month = raw_days.get()
@@ -304,35 +304,35 @@ class RecurringSelectDialog
     <div class='rs_dialog_holder'>
       <div class='rs_dialog'>
         <div class='rs_dialog_content'>
-          <h1>#{$.fn.recurring_select.texts["repeat"]} <a href='#' title='#{$.fn.recurring_select.texts["cancel"]}' Alt='#{$.fn.recurring_select.texts["cancel"]}'></a> </h1>
+          <h1>#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["repeat"]} <a href='#' title='#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["cancel"]}' Alt='#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["cancel"]}'></a> </h1>
           <p class='frequency-select-wrapper'>
-            <label for='rs_frequency'>#{$.fn.recurring_select.texts["frequency"]}:</label>
+            <label for='rs_frequency'>#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["frequency"]}:</label>
             <select data-wrapper-class='ui-recurring-select' id='rs_frequency' class='rs_frequency' name='rs_frequency'>
-              <option value='Daily'>#{$.fn.recurring_select.texts["daily"]}</option>
-              <option value='Weekly'>#{$.fn.recurring_select.texts["weekly"]}</option>
-              <option value='Monthly'>#{$.fn.recurring_select.texts["monthly"]}</option>
-              <option value='Yearly'>#{$.fn.recurring_select.texts["yearly"]}</option>
+              <option value='Daily'>#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["daily"]}</option>
+              <option value='Weekly'>#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["weekly"]}</option>
+              <option value='Monthly'>#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["monthly"]}</option>
+              <option value='Yearly'>#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["yearly"]}</option>
             </select>
           </p>
 
           <div class='daily_options freq_option_section'>
             <p>
-              #{$.fn.recurring_select.texts["every"]}
+              #{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["every"]}
               <input type='text' data-wrapper-class='ui-recurring-select' name='rs_daily_interval' class='rs_daily_interval rs_interval' value='1' size='2' />
-              #{$.fn.recurring_select.texts["days"]}
+              #{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["days"]}
             </p>
           </div>
           <div class='weekly_options freq_option_section'>
             <p>
-              #{$.fn.recurring_select.texts["every"]}
+              #{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["every"]}
               <input type='text' data-wrapper-class='ui-recurring-select' name='rs_weekly_interval' class='rs_weekly_interval rs_interval' value='1' size='2' />
-              #{$.fn.recurring_select.texts["weeks_on"]}:
+              #{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["weeks_on"]}:
             </p>
             <div class='day_holder'>
     "
-    for day_of_week in [$.fn.recurring_select.texts["first_day_of_week"]...(7 + $.fn.recurring_select.texts["first_day_of_week"])]
+    for day_of_week in [$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["first_day_of_week"]...(7 + $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["first_day_of_week"])]
       day_of_week = day_of_week % 7
-      str += "<a href='#' data-value='#{day_of_week}'>#{$.fn.recurring_select.texts["days_first_letter"][day_of_week]}</a>"
+      str += "<a href='#' data-value='#{day_of_week}'>#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["days_first_letter"][day_of_week]}</a>"
 
     str += "
             </div>
@@ -340,30 +340,30 @@ class RecurringSelectDialog
           </div>
           <div class='monthly_options freq_option_section'>
             <p>
-              #{$.fn.recurring_select.texts["every"]}
+              #{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["every"]}
               <input type='text' data-wrapper-class='ui-recurring-select' name='rs_monthly_interval' class='rs_monthly_interval rs_interval' value='1' size='2' />
-              #{$.fn.recurring_select.texts["months"]}:
+              #{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["months"]}:
             </p>
             <p class='monthly_rule_type'>
-              <span><label for='monthly_rule_type_day'>#{$.fn.recurring_select.texts["day_of_month"]}</label><input type='radio' class='monthly_rule_type_day' name='monthly_rule_type' id='monthly_rule_type_day' value='true' /></span>
-              <span><label for='monthly_rule_type_week'>#{$.fn.recurring_select.texts["day_of_week"]}</label><input type='radio' class='monthly_rule_type_week' name='monthly_rule_type' id='monthly_rule_type_week' value='true' /></span>
+              <span><label for='monthly_rule_type_day'>#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["day_of_month"]}</label><input type='radio' class='monthly_rule_type_day' name='monthly_rule_type' id='monthly_rule_type_day' value='true' /></span>
+              <span><label for='monthly_rule_type_week'>#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["day_of_week"]}</label><input type='radio' class='monthly_rule_type_week' name='monthly_rule_type' id='monthly_rule_type_week' value='true' /></span>
             </p>
             <p class='rs_calendar_day'></p>
             <p class='rs_calendar_week'></p>
           </div>
           <div class='yearly_options freq_option_section'>
             <p>
-              #{$.fn.recurring_select.texts["every"]}
+              #{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["every"]}
               <input type='text' data-wrapper-class='ui-recurring-select' name='rs_yearly_interval' class='rs_yearly_interval rs_interval' value='1' size='2' />
-              #{$.fn.recurring_select.texts["years"]}
+              #{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["years"]}
             </p>
           </div>
           <p class='rs_summary'>
             <span></span>
           </p>
           <div class='controls'>
-            <input type='button' data-wrapper-class='ui-recurring-select' class='rs_save' value='#{$.fn.recurring_select.texts["ok"]}' />
-            <input type='button' data-wrapper-class='ui-recurring-select' class='rs_cancel' value='#{$.fn.recurring_select.texts["cancel"]}' />
+            <input type='button' data-wrapper-class='ui-recurring-select' class='rs_save' value='#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["ok"]}' />
+            <input type='button' data-wrapper-class='ui-recurring-select' class='rs_cancel' value='#{$.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["cancel"]}' />
           </div>
         </div>
       </div>
