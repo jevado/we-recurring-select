@@ -29,3 +29,6 @@
 
 ## 0.2.5 (2021.06.11)
 * Providing the option to switch between languages instead of always in fr, en or any other locale
+
+## 0.2.6 (2021.06.11)
+* Fix: The translate call to the rails backend didn't take the locale into account

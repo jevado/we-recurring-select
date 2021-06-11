@@ -217,7 +217,7 @@ RecurringSelectDialog = class RecurringSelectDialog {
     }
     this.current_rule.hash['week_start'] = $.fn.recurring_select.texts[$.fn.recurring_select.options["iso_code"]]["first_day_of_week"];
     return $.ajax({
-      url: "/recurring_select/translate/en",
+      url: "/recurring_select/translate/" + $.fn.recurring_select.options["iso_code"],
       type: "POST",
       data: this.current_rule.hash,
       success: this.summaryFetchSuccess
