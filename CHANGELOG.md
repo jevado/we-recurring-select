@@ -26,3 +26,6 @@
 
 ## 0.2.4 (2021.04.26)
 * FIX: accidentally the yearly option disabled a little bit too much of the popup
+
+## 0.2.5 (2021.06.11)
+* Providing the option to switch between languages instead of always in fr, en or any other locale
